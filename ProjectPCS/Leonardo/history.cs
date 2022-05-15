@@ -7,22 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace ProjectPCS.Leonardo
 {
-    public partial class UserForm : Form
+    public partial class history : Form
     {
         int us_id;
-        public UserForm(int us_id)
+        public history(int us_id)
         {
             InitializeComponent();
             this.us_id = us_id;
         }
 
-        private void UserForm_Load(object sender, EventArgs e)
+        private void history_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void aToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UserForm b = new UserForm(us_id);
+            this.Hide();
+            b.ShowDialog();
+            this.Close();
         }
 
         private void bToolStripMenuItem_Click(object sender, EventArgs e)
@@ -30,14 +37,6 @@ namespace ProjectPCS.Leonardo
             aksesoris b = new aksesoris(us_id);
             this.Hide();
             b.ShowDialog();
-            this.Close();
-        }
-
-        private void historyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            history c = new history(us_id);
-            this.Hide();
-            c.ShowDialog();
             this.Close();
         }
 
@@ -62,7 +61,7 @@ namespace ProjectPCS.Leonardo
             this.Close();
         }
 
-        private void UserForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void history_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Are you sure want to logout?", "Log Out", MessageBoxButtons.YesNo);
             e.Cancel = (dialogResult == DialogResult.No);

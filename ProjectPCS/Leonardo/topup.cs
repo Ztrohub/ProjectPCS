@@ -7,25 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace ProjectPCS.Leonardo
 {
-    public partial class UserForm : Form
+    public partial class topup : Form
     {
         int us_id;
-        public UserForm(int us_id)
+        public topup(int us_id)
         {
             InitializeComponent();
             this.us_id = us_id;
         }
 
-        private void UserForm_Load(object sender, EventArgs e)
+        private void topup_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void bToolStripMenuItem_Click(object sender, EventArgs e)
+        private void sepedaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UserForm b = new UserForm(us_id);
+            this.Hide();
+            b.ShowDialog();
+            this.Close();
+        }
+
+        private void aksesorisToolStripMenuItem_Click(object sender, EventArgs e)
         {
             aksesoris b = new aksesoris(us_id);
             this.Hide();
@@ -38,14 +45,6 @@ namespace ProjectPCS.Leonardo
             history c = new history(us_id);
             this.Hide();
             c.ShowDialog();
-            this.Close();
-        }
-
-        private void topUpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            topup d = new topup(us_id);
-            this.Hide();
-            d.ShowDialog();
             this.Close();
         }
 
@@ -62,7 +61,7 @@ namespace ProjectPCS.Leonardo
             this.Close();
         }
 
-        private void UserForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void topup_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Are you sure want to logout?", "Log Out", MessageBoxButtons.YesNo);
             e.Cancel = (dialogResult == DialogResult.No);
