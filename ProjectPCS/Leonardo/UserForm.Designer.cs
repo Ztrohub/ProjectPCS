@@ -32,6 +32,10 @@ namespace ProjectPCS.Leonardo
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.onGoingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.topUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,8 +57,6 @@ namespace ProjectPCS.Leonardo
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.topUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label13 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -63,8 +65,6 @@ namespace ProjectPCS.Leonardo
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.onGoingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -102,9 +102,39 @@ namespace ProjectPCS.Leonardo
             this.bToolStripMenuItem.Text = "Aksesoris";
             this.bToolStripMenuItem.Click += new System.EventHandler(this.bToolStripMenuItem_Click);
             // 
+            // onGoingToolStripMenuItem
+            // 
+            this.onGoingToolStripMenuItem.Name = "onGoingToolStripMenuItem";
+            this.onGoingToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
+            this.onGoingToolStripMenuItem.Text = "On Going";
+            this.onGoingToolStripMenuItem.Click += new System.EventHandler(this.onGoingToolStripMenuItem_Click);
+            // 
+            // historyToolStripMenuItem
+            // 
+            this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
+            this.historyToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
+            this.historyToolStripMenuItem.Text = "History";
+            this.historyToolStripMenuItem.Click += new System.EventHandler(this.historyToolStripMenuItem_Click);
+            // 
+            // topUpToolStripMenuItem
+            // 
+            this.topUpToolStripMenuItem.Name = "topUpToolStripMenuItem";
+            this.topUpToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
+            this.topUpToolStripMenuItem.Text = "Top Up";
+            this.topUpToolStripMenuItem.Click += new System.EventHandler(this.topUpToolStripMenuItem_Click);
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
+            this.logOutToolStripMenuItem.Text = "Log out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.GridColor = System.Drawing.Color.CadetBlue;
             this.dataGridView1.Location = new System.Drawing.Point(12, 128);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -136,7 +166,7 @@ namespace ProjectPCS.Leonardo
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(12, 44);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(141, 39);
+            this.label3.Size = new System.Drawing.Size(135, 38);
             this.label3.TabIndex = 5;
             this.label3.Text = "Sepeda";
             // 
@@ -291,20 +321,6 @@ namespace ProjectPCS.Leonardo
             this.comboBox2.Size = new System.Drawing.Size(117, 24);
             this.comboBox2.TabIndex = 22;
             // 
-            // historyToolStripMenuItem
-            // 
-            this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
-            this.historyToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
-            this.historyToolStripMenuItem.Text = "History";
-            this.historyToolStripMenuItem.Click += new System.EventHandler(this.historyToolStripMenuItem_Click);
-            // 
-            // topUpToolStripMenuItem
-            // 
-            this.topUpToolStripMenuItem.Name = "topUpToolStripMenuItem";
-            this.topUpToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
-            this.topUpToolStripMenuItem.Text = "Top Up";
-            this.topUpToolStripMenuItem.Click += new System.EventHandler(this.topUpToolStripMenuItem_Click);
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -379,25 +395,11 @@ namespace ProjectPCS.Leonardo
             this.label17.TabIndex = 31;
             this.label17.Text = "-";
             // 
-            // onGoingToolStripMenuItem
-            // 
-            this.onGoingToolStripMenuItem.Name = "onGoingToolStripMenuItem";
-            this.onGoingToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
-            this.onGoingToolStripMenuItem.Text = "On Going";
-            this.onGoingToolStripMenuItem.Click += new System.EventHandler(this.onGoingToolStripMenuItem_Click);
-            // 
-            // logOutToolStripMenuItem
-            // 
-            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
-            this.logOutToolStripMenuItem.Text = "Log out";
-            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
-            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1153, 616);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
