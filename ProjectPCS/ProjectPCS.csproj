@@ -92,10 +92,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Fernando\CrystalReport1.cs">
+    <Compile Include="Fernando\NotaSewaSepeda.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <DependentUpon>NotaSewaSepeda.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Jonathan\AdminForm.cs">
@@ -131,9 +131,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Fernando\CrystalReport1.rpt">
+    <EmbeddedResource Include="Fernando\NotaSewaSepeda.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+      <LastGenOutput>NotaSewaSepeda.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Jonathan\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
