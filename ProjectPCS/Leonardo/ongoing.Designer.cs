@@ -30,7 +30,6 @@ namespace ProjectPCS.Leonardo
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.mySqlDataAdapter1 = new MySql.Data.MySqlClient.MySqlDataAdapter();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -59,13 +58,6 @@ namespace ProjectPCS.Leonardo
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(378, 393);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // mySqlDataAdapter1
-            // 
-            this.mySqlDataAdapter1.DeleteCommand = null;
-            this.mySqlDataAdapter1.InsertCommand = null;
-            this.mySqlDataAdapter1.SelectCommand = null;
-            this.mySqlDataAdapter1.UpdateCommand = null;
             // 
             // dataGridView2
             // 
@@ -160,6 +152,7 @@ namespace ProjectPCS.Leonardo
             this.bToolStripMenuItem.Name = "bToolStripMenuItem";
             this.bToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
             this.bToolStripMenuItem.Text = "Aksesoris";
+            this.bToolStripMenuItem.Click += new System.EventHandler(this.bToolStripMenuItem_Click);
             // 
             // onGoingToolStripMenuItem
             // 
@@ -218,7 +211,6 @@ namespace ProjectPCS.Leonardo
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private MySql.Data.MySqlClient.MySqlDataAdapter mySqlDataAdapter1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

@@ -34,5 +34,13 @@ namespace ProjectPCS.Leonardo
             DialogResult dialogResult = MessageBox.Show("Are you sure want to logout?", "Log Out", MessageBoxButtons.YesNo);
             e.Cancel = (dialogResult == DialogResult.No);
         }
+
+        private void bToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            history c = new history(us_id);
+            this.Hide();
+            c.ShowDialog();
+            this.Close();
+        }
     }
 }
