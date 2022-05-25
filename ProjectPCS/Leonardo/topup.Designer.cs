@@ -33,8 +33,10 @@ namespace ProjectPCS.Leonardo
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.sepedaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aksesorisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.topUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.onGoingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.topUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,11 +48,9 @@ namespace ProjectPCS.Leonardo
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.onGoingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -96,6 +96,20 @@ namespace ProjectPCS.Leonardo
             this.aksesorisToolStripMenuItem.Text = "Aksesoris";
             this.aksesorisToolStripMenuItem.Click += new System.EventHandler(this.aksesorisToolStripMenuItem_Click);
             // 
+            // onGoingToolStripMenuItem
+            // 
+            this.onGoingToolStripMenuItem.Name = "onGoingToolStripMenuItem";
+            this.onGoingToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
+            this.onGoingToolStripMenuItem.Text = "On Going";
+            this.onGoingToolStripMenuItem.Click += new System.EventHandler(this.onGoingToolStripMenuItem_Click);
+            // 
+            // historyToolStripMenuItem
+            // 
+            this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
+            this.historyToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
+            this.historyToolStripMenuItem.Text = "History";
+            this.historyToolStripMenuItem.Click += new System.EventHandler(this.historyToolStripMenuItem_Click);
+            // 
             // topUpToolStripMenuItem
             // 
             this.topUpToolStripMenuItem.Checked = true;
@@ -104,12 +118,12 @@ namespace ProjectPCS.Leonardo
             this.topUpToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
             this.topUpToolStripMenuItem.Text = "Top Up";
             // 
-            // historyToolStripMenuItem
+            // logOutToolStripMenuItem
             // 
-            this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
-            this.historyToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
-            this.historyToolStripMenuItem.Text = "History";
-            this.historyToolStripMenuItem.Click += new System.EventHandler(this.historyToolStripMenuItem_Click);
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.logOutToolStripMenuItem.Text = "Log Out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -197,6 +211,7 @@ namespace ProjectPCS.Leonardo
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.DodgerBlue;
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.label6);
@@ -207,22 +222,6 @@ namespace ProjectPCS.Leonardo
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(115, 69);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 17);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Nominal : ";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(192, 69);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(148, 22);
-            this.textBox4.TabIndex = 1;
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(152, 112);
@@ -232,24 +231,27 @@ namespace ProjectPCS.Leonardo
             this.button2.Text = "Top Up";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // onGoingToolStripMenuItem
+            // textBox4
             // 
-            this.onGoingToolStripMenuItem.Name = "onGoingToolStripMenuItem";
-            this.onGoingToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
-            this.onGoingToolStripMenuItem.Text = "On Going";
-            this.onGoingToolStripMenuItem.Click += new System.EventHandler(this.onGoingToolStripMenuItem_Click);
+            this.textBox4.Location = new System.Drawing.Point(192, 69);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(148, 22);
+            this.textBox4.TabIndex = 1;
             // 
-            // logOutToolStripMenuItem
+            // label6
             // 
-            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
-            this.logOutToolStripMenuItem.Text = "Log Out";
-            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(115, 69);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(71, 17);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Nominal : ";
             // 
             // topup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label5);

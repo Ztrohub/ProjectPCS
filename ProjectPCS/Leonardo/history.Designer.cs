@@ -32,8 +32,10 @@ namespace ProjectPCS.Leonardo
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.onGoingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -43,8 +45,6 @@ namespace ProjectPCS.Leonardo
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
-            this.onGoingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -81,6 +81,13 @@ namespace ProjectPCS.Leonardo
             this.bToolStripMenuItem.Text = "Aksesoris";
             this.bToolStripMenuItem.Click += new System.EventHandler(this.bToolStripMenuItem_Click);
             // 
+            // onGoingToolStripMenuItem
+            // 
+            this.onGoingToolStripMenuItem.Name = "onGoingToolStripMenuItem";
+            this.onGoingToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
+            this.onGoingToolStripMenuItem.Text = "On Going";
+            this.onGoingToolStripMenuItem.Click += new System.EventHandler(this.onGoingToolStripMenuItem_Click);
+            // 
             // historyToolStripMenuItem
             // 
             this.historyToolStripMenuItem.Checked = true;
@@ -95,6 +102,13 @@ namespace ProjectPCS.Leonardo
             this.topUpToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
             this.topUpToolStripMenuItem.Text = "Top Up";
             this.topUpToolStripMenuItem.Click += new System.EventHandler(this.topUpToolStripMenuItem_Click);
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.logOutToolStripMenuItem.Text = "Log Out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // dataGridView1
             // 
@@ -180,24 +194,11 @@ namespace ProjectPCS.Leonardo
             this.button1.Text = "Filter";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // onGoingToolStripMenuItem
-            // 
-            this.onGoingToolStripMenuItem.Name = "onGoingToolStripMenuItem";
-            this.onGoingToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
-            this.onGoingToolStripMenuItem.Text = "On Going";
-            this.onGoingToolStripMenuItem.Click += new System.EventHandler(this.onGoingToolStripMenuItem_Click);
-            // 
-            // logOutToolStripMenuItem
-            // 
-            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
-            this.logOutToolStripMenuItem.Text = "Log Out";
-            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
-            // 
             // history
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);

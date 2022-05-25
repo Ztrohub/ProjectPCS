@@ -37,9 +37,30 @@ namespace ProjectPCS.Leonardo
 
         private void bToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void aToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UserForm b = new UserForm(us_id);
+            this.Hide();
+            b.ShowDialog();
+            this.Close();
+        }
+
+        private void historyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             history c = new history(us_id);
             this.Hide();
             c.ShowDialog();
+            this.Close();
+        }
+
+        private void topUpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            topup d = new topup(us_id);
+            this.Hide();
+            d.ShowDialog();
             this.Close();
         }
     }

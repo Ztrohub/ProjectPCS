@@ -146,6 +146,7 @@ namespace ProjectPCS.Leonardo
             this.aToolStripMenuItem.Name = "aToolStripMenuItem";
             this.aToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.aToolStripMenuItem.Text = "Sepeda";
+            this.aToolStripMenuItem.Click += new System.EventHandler(this.aToolStripMenuItem_Click);
             // 
             // bToolStripMenuItem
             // 
@@ -167,12 +168,14 @@ namespace ProjectPCS.Leonardo
             this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
             this.historyToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
             this.historyToolStripMenuItem.Text = "History";
+            this.historyToolStripMenuItem.Click += new System.EventHandler(this.historyToolStripMenuItem_Click);
             // 
             // topUpToolStripMenuItem
             // 
             this.topUpToolStripMenuItem.Name = "topUpToolStripMenuItem";
             this.topUpToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
             this.topUpToolStripMenuItem.Text = "Top Up";
+            this.topUpToolStripMenuItem.Click += new System.EventHandler(this.topUpToolStripMenuItem_Click);
             // 
             // logOutToolStripMenuItem
             // 
@@ -185,6 +188,7 @@ namespace ProjectPCS.Leonardo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.button1);

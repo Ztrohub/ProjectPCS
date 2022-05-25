@@ -32,6 +32,10 @@ namespace ProjectPCS.Leonardo
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.sepedaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aksesorisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.onGoingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.topUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label12 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -50,10 +54,6 @@ namespace ProjectPCS.Leonardo
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.topUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.onGoingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -89,6 +89,34 @@ namespace ProjectPCS.Leonardo
             this.aksesorisToolStripMenuItem.Name = "aksesorisToolStripMenuItem";
             this.aksesorisToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
             this.aksesorisToolStripMenuItem.Text = "Aksesoris";
+            // 
+            // onGoingToolStripMenuItem
+            // 
+            this.onGoingToolStripMenuItem.Name = "onGoingToolStripMenuItem";
+            this.onGoingToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
+            this.onGoingToolStripMenuItem.Text = "On Going";
+            this.onGoingToolStripMenuItem.Click += new System.EventHandler(this.onGoingToolStripMenuItem_Click);
+            // 
+            // historyToolStripMenuItem
+            // 
+            this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
+            this.historyToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
+            this.historyToolStripMenuItem.Text = "History";
+            this.historyToolStripMenuItem.Click += new System.EventHandler(this.historyToolStripMenuItem_Click);
+            // 
+            // topUpToolStripMenuItem
+            // 
+            this.topUpToolStripMenuItem.Name = "topUpToolStripMenuItem";
+            this.topUpToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
+            this.topUpToolStripMenuItem.Text = "Top Up";
+            this.topUpToolStripMenuItem.Click += new System.EventHandler(this.topUpToolStripMenuItem_Click);
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.logOutToolStripMenuItem.Text = "Log Out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // label12
             // 
@@ -219,7 +247,7 @@ namespace ProjectPCS.Leonardo
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(12, 29);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(174, 39);
+            this.label3.Size = new System.Drawing.Size(170, 38);
             this.label3.TabIndex = 27;
             this.label3.Text = "Aksesoris";
             // 
@@ -251,38 +279,11 @@ namespace ProjectPCS.Leonardo
             this.dataGridView1.Size = new System.Drawing.Size(639, 415);
             this.dataGridView1.TabIndex = 24;
             // 
-            // topUpToolStripMenuItem
-            // 
-            this.topUpToolStripMenuItem.Name = "topUpToolStripMenuItem";
-            this.topUpToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
-            this.topUpToolStripMenuItem.Text = "Top Up";
-            this.topUpToolStripMenuItem.Click += new System.EventHandler(this.topUpToolStripMenuItem_Click);
-            // 
-            // historyToolStripMenuItem
-            // 
-            this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
-            this.historyToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
-            this.historyToolStripMenuItem.Text = "History";
-            this.historyToolStripMenuItem.Click += new System.EventHandler(this.historyToolStripMenuItem_Click);
-            // 
-            // onGoingToolStripMenuItem
-            // 
-            this.onGoingToolStripMenuItem.Name = "onGoingToolStripMenuItem";
-            this.onGoingToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
-            this.onGoingToolStripMenuItem.Text = "On Going";
-            this.onGoingToolStripMenuItem.Click += new System.EventHandler(this.onGoingToolStripMenuItem_Click);
-            // 
-            // logOutToolStripMenuItem
-            // 
-            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
-            this.logOutToolStripMenuItem.Text = "Log Out";
-            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
-            // 
             // aksesoris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(1158, 539);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.comboBox2);
