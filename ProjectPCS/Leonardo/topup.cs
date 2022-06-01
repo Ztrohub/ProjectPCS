@@ -7,12 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace ProjectPCS.Leonardo
 {
     public partial class topup : Form
     {
         int us_id;
+        MySqlCommand cmd;
+        MySqlDataReader rd;
+        DataSet ds;
+        MySqlDataAdapter da;
+        DataTable dt;
         public topup(int us_id)
         {
             InitializeComponent();
@@ -21,7 +27,31 @@ namespace ProjectPCS.Leonardo
 
         private void topup_Load(object sender, EventArgs e)
         {
+            loaddatagrid1();
+        }
 
+        void loaddatagrid1()
+        {
+            dataGridView1.ClearSelection();
+            try
+            {
+                ds = new DataSet();
+                cmd = new MySqlCommand();
+                da = new MySqlDataAdapter();
+                cmd.Connection = Koneksi.getConn();
+                cmd.CommandText = @"SELECT dm_name AS 'Kegiatan', CONCAT('Rp. ',dm_amount) AS 'Jumlah', dm_date AS 'Tanggal' FROM dompet;";
+
+                Koneksi.openConn();
+                cmd.ExecuteReader();
+                Koneksi.closeConn();
+                da.SelectCommand = cmd;
+                da.Fill(ds);
+                dataGridView1.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private void sepedaToolStripMenuItem_Click(object sender, EventArgs e)

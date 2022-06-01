@@ -7,12 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+
 
 namespace ProjectPCS.Leonardo
 {
     public partial class history : Form
     {
         int us_id;
+        MySqlCommand cmd;
+        MySqlDataReader rd;
+        DataSet ds;
+        MySqlDataAdapter da;
+        DataTable dt;
         public history(int us_id)
         {
             InitializeComponent();
@@ -21,6 +28,32 @@ namespace ProjectPCS.Leonardo
 
         private void history_Load(object sender, EventArgs e)
         {
+            loaddatagrid1();
+        }
+
+        void loaddatagrid1()
+        {
+            dataGridView1.ClearSelection();
+            try
+            {
+                ds = new DataSet();
+                cmd = new MySqlCommand();
+                da = new MySqlDataAdapter();
+                cmd.Connection = Koneksi.getConn();
+                cmd.CommandText = @"SELECT ht_date AS 'tanggal', ht_invoice_number AS 'invoice', ht_total AS 'total', ht_hari AS 'hari', ht_jam AS 'jam', ht_kembalian AS 'tgl kembali', ht_dikembalikan AS 'tgl dikembalikan', ht_us_penerima AS 'penerima' FROM htrans";
+
+                Koneksi.openConn();
+                cmd.ExecuteReader();
+                Koneksi.closeConn();
+                da.SelectCommand = cmd;
+                da.Fill(ds);
+                dataGridView1.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
 
         }
 

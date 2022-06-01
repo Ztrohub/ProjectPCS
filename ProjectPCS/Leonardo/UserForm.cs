@@ -13,7 +13,15 @@ namespace ProjectPCS.Leonardo
 {
     public partial class UserForm : Form
     {
+
+        MySqlCommand cmd;
+        MySqlDataReader rd;
+        DataSet ds;
+        MySqlDataAdapter da;
+        DataTable dt;
         int us_id;
+        string tempnama;
+        string tempsaldo;
         public UserForm(int us_id)
         {
             InitializeComponent();
@@ -22,7 +30,75 @@ namespace ProjectPCS.Leonardo
 
         private void UserForm_Load(object sender, EventArgs e)
         {
+            
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = Koneksi.getConn();
+                Koneksi.openConn();
+                cmd.CommandText = @"select us_name from users where us_id = '" + us_id + "'";
+                rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    tempnama = rd.GetString(0);
+                }
+                Koneksi.closeConn();
+                label1.Text = "Welcome, " + tempnama;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = Koneksi.getConn();
+                Koneksi.openConn();
+                cmd.CommandText = @"select us_saldo from users where us_id = '" + us_id + "'";
+                rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    tempsaldo = rd.GetString(0);
+                }
+                Koneksi.closeConn();
+                label2.Text = "Rp." + tempsaldo;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+            loaddatagrid1();
+        }
+
+        void loaddatagrid1()
+        {
+            dataGridView1.ClearSelection();
+            try
+            {
+                ds = new DataSet();
+                cmd = new MySqlCommand();
+                da = new MySqlDataAdapter();
+                cmd.Connection = Koneksi.getConn();
+                cmd.CommandText = @"SELECT sp_name AS 'Sepeda', sp_amount AS 'Unit Tersedia', 
+                concat('Rp. ',sp_price_hour) AS 'Harga/Jam',
+                concat('Rp. ',sp_price_day) AS 'Harga/Hari' FROM sepeda";
+                
+                Koneksi.openConn();
+                cmd.ExecuteReader();
+                Koneksi.closeConn();
+                da.SelectCommand = cmd;
+                da.Fill(ds);
+                dataGridView1.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            
         }
 
         private void bToolStripMenuItem_Click(object sender, EventArgs e)
@@ -67,5 +143,7 @@ namespace ProjectPCS.Leonardo
             DialogResult dialogResult = MessageBox.Show("Are you sure want to logout?", "Log Out", MessageBoxButtons.YesNo);
             e.Cancel = (dialogResult == DialogResult.No);
         }
+
+        
     }
 }
