@@ -39,7 +39,6 @@ namespace ProjectPCS.Leonardo
             this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.onGoingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -128,7 +127,6 @@ namespace ProjectPCS.Leonardo
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aToolStripMenuItem,
-            this.bToolStripMenuItem,
             this.onGoingToolStripMenuItem,
             this.historyToolStripMenuItem,
             this.topUpToolStripMenuItem,
@@ -147,13 +145,6 @@ namespace ProjectPCS.Leonardo
             this.aToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.aToolStripMenuItem.Text = "Sepeda";
             this.aToolStripMenuItem.Click += new System.EventHandler(this.aToolStripMenuItem_Click);
-            // 
-            // bToolStripMenuItem
-            // 
-            this.bToolStripMenuItem.Name = "bToolStripMenuItem";
-            this.bToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
-            this.bToolStripMenuItem.Text = "Aksesoris";
-            this.bToolStripMenuItem.Click += new System.EventHandler(this.bToolStripMenuItem_Click);
             // 
             // onGoingToolStripMenuItem
             // 
@@ -224,7 +215,6 @@ namespace ProjectPCS.Leonardo
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem aToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem onGoingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem historyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem topUpToolStripMenuItem;

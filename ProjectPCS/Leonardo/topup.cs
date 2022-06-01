@@ -28,6 +28,7 @@ namespace ProjectPCS.Leonardo
         private void topup_Load(object sender, EventArgs e)
         {
             loaddatagrid1();
+            groupBox1.Visible = false;
         }
 
         void loaddatagrid1()
@@ -62,13 +63,7 @@ namespace ProjectPCS.Leonardo
             this.Close();
         }
 
-        private void aksesorisToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            aksesoris b = new aksesoris(us_id);
-            this.Hide();
-            b.ShowDialog();
-            this.Close();
-        }
+        
 
         private void historyToolStripMenuItem_Click(object sender, EventArgs e)
         {

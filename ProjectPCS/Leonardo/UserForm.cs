@@ -30,7 +30,8 @@ namespace ProjectPCS.Leonardo
 
         private void UserForm_Load(object sender, EventArgs e)
         {
-            
+            comboBox3.SelectedIndex = 0;
+
             try
             {
                 MySqlCommand cmd = new MySqlCommand();
@@ -69,22 +70,46 @@ namespace ProjectPCS.Leonardo
                 MessageBox.Show(ex.Message);
             }
 
-
-            loaddatagrid1();
+            dgbawahkanan();
+            dgbawahkiri();
+            
         }
 
-        void loaddatagrid1()
+        void loaddatagrid2()
         {
-            dataGridView1.ClearSelection();
+            //id - nama barang - jumlah - harga
             try
             {
                 ds = new DataSet();
                 cmd = new MySqlCommand();
                 da = new MySqlDataAdapter();
                 cmd.Connection = Koneksi.getConn();
-                cmd.CommandText = @"SELECT sp_name AS 'Sepeda', sp_amount AS 'Unit Tersedia', 
-                concat('Rp. ',sp_price_hour) AS 'Harga/Jam',
-                concat('Rp. ',sp_price_day) AS 'Harga/Hari' FROM sepeda";
+                cmd.CommandText = @"SELECT ak_name AS 'Aksesoris',br_name AS 'Brand', ak_amount AS 'Unit Tersedia', ak_price_hour AS 'Harga/Jam', ak_price_day AS 'Harga/Hari' FROM aksesoris, brand WHERE ak_br_id = br_id";
+
+                Koneksi.openConn();
+                cmd.ExecuteReader();
+                Koneksi.closeConn();
+                da.SelectCommand = cmd;
+                da.Fill(ds);
+                dataGridView1.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            dataGridView1.ClearSelection();
+        }
+
+        void loaddatagrid1()
+        {
+            
+            try
+            {
+                ds = new DataSet();
+                cmd = new MySqlCommand();
+                da = new MySqlDataAdapter();
+                cmd.Connection = Koneksi.getConn();
+                cmd.CommandText = @"SELECT sp_name AS 'Sepeda',br_name AS 'Brand', sp_amount AS 'Unit Tersedia', sp_price_hour AS 'Harga/Jam', sp_price_day AS 'Harga/Hari' FROM sepeda, brand WHERE sp_br_id = br_id";
                 
                 Koneksi.openConn();
                 cmd.ExecuteReader();
@@ -97,16 +122,56 @@ namespace ProjectPCS.Leonardo
             {
                 Console.WriteLine(ex.Message);
             }
+            dataGridView1.ClearSelection();
 
-            
         }
 
-        private void bToolStripMenuItem_Click(object sender, EventArgs e)
+        void dgbawahkiri()
         {
-            aksesoris b = new aksesoris(us_id);
-            this.Hide();
-            b.ShowDialog();
-            this.Close();
+            try
+            {
+                ds = new DataSet();
+                cmd = new MySqlCommand();
+                da = new MySqlDataAdapter();
+                cmd.Connection = Koneksi.getConn();
+                cmd.CommandText = @"SELECT sp_name AS 'Sepeda', sp_amount AS 'Jumlah', sp_price_hour AS 'Harga' FROM sepeda WHERE sp_id = -1;";
+
+                Koneksi.openConn();
+                cmd.ExecuteReader();
+                Koneksi.closeConn();
+                da.SelectCommand = cmd;
+                da.Fill(ds);
+                dataGridView2.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            dataGridView1.ClearSelection();
+        }
+
+        void dgbawahkanan()
+        {
+            try
+            {
+                ds = new DataSet();
+                cmd = new MySqlCommand();
+                da = new MySqlDataAdapter();
+                cmd.Connection = Koneksi.getConn();
+                cmd.CommandText = @"SELECT sp_name AS 'Aksesoris', sp_amount AS 'Jumlah', sp_price_hour AS 'Harga' FROM sepeda WHERE sp_id = -1;";
+
+                Koneksi.openConn();
+                cmd.ExecuteReader();
+                Koneksi.closeConn();
+                da.SelectCommand = cmd;
+                da.Fill(ds);
+                dataGridView3.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            dataGridView1.ClearSelection();
         }
 
         private void historyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -144,6 +209,69 @@ namespace ProjectPCS.Leonardo
             e.Cancel = (dialogResult == DialogResult.No);
         }
 
-        
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox3.Enabled == false)
+            {
+                return;
+            }
+            if (comboBox3.SelectedIndex == 0)
+            {
+                loaddatagrid1();
+            }
+            else
+            {
+                loaddatagrid2();
+            }
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            waktu w = new waktu();
+            w.ShowDialog();
+            if (w.durasi == -1)
+            {
+                return;
+            }
+            loaddatagrid1();
+            comboBox3.Enabled = true;
+            textBox1.Enabled = true;
+            textBox2.Enabled = true;
+            textBox3.Enabled = true;
+            textBox4.Enabled = true;
+            textBox5.Enabled = true;
+            comboBox1.Enabled = true;
+            comboBox2.Enabled = true;
+            
+
+            radioButton1.Checked = w.perjam;
+            radioButton2.Checked = !w.perjam;
+
+            numericUpDown1.Value = w.durasi;
+
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = Koneksi.getConn();
+            cmd.CommandText = @"SELECT CONCAT(
+             DATE_FORMAT(NOW(),'%y%m%d'), LPAD(hitung.jml, 3, '0')
+            )
+            FROM (
+                SELECT COUNT(*)+1 AS jml
+                FROM htrans
+                WHERE SUBSTRING(ht_invoice_number, 1, 6) = DATE_FORMAT(NOW(),'%y%m%d')
+            ) hitung";
+
+            Koneksi.openConn();
+            string invoice = cmd.ExecuteScalar().ToString();
+            Koneksi.closeConn();
+
+            textBox2.Text = invoice;
+
+            textBox3.Text = DateTime.Now.ToString();
+        }
     }
 }

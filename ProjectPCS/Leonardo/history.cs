@@ -65,13 +65,7 @@ namespace ProjectPCS.Leonardo
             this.Close();
         }
 
-        private void bToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            aksesoris b = new aksesoris(us_id);
-            this.Hide();
-            b.ShowDialog();
-            this.Close();
-        }
+        
 
         private void topUpToolStripMenuItem_Click(object sender, EventArgs e)
         {

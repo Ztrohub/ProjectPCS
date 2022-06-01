@@ -36,7 +36,6 @@ namespace ProjectPCS.Leonardo
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.sepedaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aksesorisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.onGoingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -110,7 +109,6 @@ namespace ProjectPCS.Leonardo
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sepedaToolStripMenuItem,
-            this.aksesorisToolStripMenuItem,
             this.onGoingToolStripMenuItem,
             this.historyToolStripMenuItem,
             this.topUpToolStripMenuItem,
@@ -127,13 +125,6 @@ namespace ProjectPCS.Leonardo
             this.sepedaToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.sepedaToolStripMenuItem.Text = "Sepeda";
             this.sepedaToolStripMenuItem.Click += new System.EventHandler(this.sepedaToolStripMenuItem_Click);
-            // 
-            // aksesorisToolStripMenuItem
-            // 
-            this.aksesorisToolStripMenuItem.Name = "aksesorisToolStripMenuItem";
-            this.aksesorisToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
-            this.aksesorisToolStripMenuItem.Text = "Aksesoris";
-            this.aksesorisToolStripMenuItem.Click += new System.EventHandler(this.aksesorisToolStripMenuItem_Click);
             // 
             // onGoingToolStripMenuItem
             // 
@@ -325,7 +316,6 @@ namespace ProjectPCS.Leonardo
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem sepedaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aksesorisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem topUpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem historyToolStripMenuItem;
         private System.Windows.Forms.Label label1;
