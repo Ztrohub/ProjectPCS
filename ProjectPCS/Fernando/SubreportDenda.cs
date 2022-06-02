@@ -16,14 +16,14 @@ namespace ProjectPCS.Fernando {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class NotaSewaSepeda : ReportClass {
+    public class SubreportDenda : ReportClass {
         
-        public NotaSewaSepeda() {
+        public SubreportDenda() {
         }
         
         public override string ResourceName {
             get {
-                return "NotaSewaSepeda.rpt";
+                return "SubreportDenda.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace ProjectPCS.Fernando {
         
         public override string FullResourceName {
             get {
-                return "ProjectPCS.Fernando.NotaSewaSepeda.rpt";
+                return "ProjectPCS.Fernando.SubreportDenda.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace ProjectPCS.Fernando {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedNotaSewaSepeda : Component, ICachedReport {
+    public class CachedSubreportDenda : Component, ICachedReport {
         
-        public CachedNotaSewaSepeda() {
+        public CachedSubreportDenda() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace ProjectPCS.Fernando {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            NotaSewaSepeda rpt = new NotaSewaSepeda();
+            SubreportDenda rpt = new SubreportDenda();
             rpt.Site = this.Site;
             return rpt;
         }
