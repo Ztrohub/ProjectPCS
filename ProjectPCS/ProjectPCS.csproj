@@ -33,12 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Google.Protobuf, Version=3.19.4.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.19.4\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
@@ -75,6 +77,8 @@
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -92,10 +96,70 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Fernando\CrystalReport1.cs">
+    <Compile Include="Fernando\crptDetailUser.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <DependentUpon>crptDetailUser.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Fernando\crptTransaksiAdmin.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crptTransaksiAdmin.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Fernando\crptNotaDenda.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crptNotaDenda.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Fernando\crptNotaSewa.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crptNotaSewa.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Fernando\SubreportSewaAksesoris.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubreportSewaAksesoris.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Fernando\SubreportSewaSepeda.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubreportSewaSepeda.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Fernando\ShowTransactionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fernando\ShowTransactionForm.Designer.cs">
+      <DependentUpon>ShowTransactionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fernando\SubreportDenda.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubreportDenda.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Fernando\SubreportTransaksiAksesoris.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubreportTransaksiAksesoris.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Fernando\SubreportTransaksiSepeda.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubreportTransaksiSepeda.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Fernando\SuratJaminan.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SuratJaminan.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Jonathan\AdminForm.cs">
@@ -131,9 +195,48 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Fernando\CrystalReport1.rpt">
+    <EmbeddedResource Include="Fernando\crptDetailUser.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+      <LastGenOutput>crptDetailUser.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fernando\crptTransaksiAdmin.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crptTransaksiAdmin.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fernando\crptNotaDenda.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crptNotaDenda.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fernando\crptNotaSewa.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crptNotaSewa.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fernando\SubreportSewaAksesoris.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SubreportSewaAksesoris.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fernando\SubreportSewaSepeda.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SubreportSewaSepeda.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fernando\ShowTransactionForm.resx">
+      <DependentUpon>ShowTransactionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fernando\SubreportDenda.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SubreportDenda.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fernando\SubreportTransaksiAksesoris.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SubreportTransaksiAksesoris.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fernando\SubreportTransaksiSepeda.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SubreportTransaksiSepeda.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fernando\SuratJaminan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SuratJaminan.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Jonathan\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
