@@ -43,7 +43,7 @@ namespace ProjectPCS.Leonardo
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(197, 153);
+            this.radioButton1.Location = new System.Drawing.Point(184, 94);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(81, 21);
             this.radioButton1.TabIndex = 0;
@@ -55,7 +55,7 @@ namespace ProjectPCS.Leonardo
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(147, 48);
+            this.label1.Location = new System.Drawing.Point(135, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(143, 29);
             this.label1.TabIndex = 1;
@@ -64,7 +64,7 @@ namespace ProjectPCS.Leonardo
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(61, 153);
+            this.label2.Location = new System.Drawing.Point(48, 94);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(130, 17);
             this.label2.TabIndex = 2;
@@ -73,7 +73,7 @@ namespace ProjectPCS.Leonardo
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(284, 153);
+            this.radioButton2.Location = new System.Drawing.Point(271, 94);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(81, 21);
             this.radioButton2.TabIndex = 3;
@@ -85,7 +85,7 @@ namespace ProjectPCS.Leonardo
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(327, 182);
+            this.label14.Location = new System.Drawing.Point(314, 123);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(64, 17);
             this.label14.TabIndex = 35;
@@ -93,7 +93,7 @@ namespace ProjectPCS.Leonardo
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(197, 180);
+            this.numericUpDown1.Location = new System.Drawing.Point(184, 121);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
             this.numericUpDown1.TabIndex = 34;
@@ -102,7 +102,7 @@ namespace ProjectPCS.Leonardo
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(65, 185);
+            this.label9.Location = new System.Drawing.Point(52, 126);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(57, 17);
             this.label9.TabIndex = 33;
@@ -110,9 +110,10 @@ namespace ProjectPCS.Leonardo
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(184, 258);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(151, 180);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(104, 39);
             this.button1.TabIndex = 36;
             this.button1.Text = "Submit";
             this.button1.UseVisualStyleBackColor = true;
@@ -122,7 +123,8 @@ namespace ProjectPCS.Leonardo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(460, 380);
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.ClientSize = new System.Drawing.Size(402, 318);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.numericUpDown1);
