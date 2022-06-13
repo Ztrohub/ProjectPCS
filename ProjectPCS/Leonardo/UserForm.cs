@@ -30,6 +30,7 @@ namespace ProjectPCS.Leonardo
         string image = null;
         int type = -1;
         string number = null;
+        string where = "";
 
 
         public UserForm(int us_id)
@@ -41,6 +42,8 @@ namespace ProjectPCS.Leonardo
         private void UserForm_Load(object sender, EventArgs e)
         {
             comboBox3.SelectedIndex = 0;
+            loadComboboxTipe();
+            loadComboboxBrand();
 
             try
             {
@@ -94,7 +97,7 @@ namespace ProjectPCS.Leonardo
                 cmd = new MySqlCommand();
                 da = new MySqlDataAdapter();
                 cmd.Connection = Koneksi.getConn();
-                cmd.CommandText = @"SELECT ak_id AS 'ID', ak_name AS 'Aksesoris',br_name AS 'Brand', ak_amount AS 'Unit Tersedia', ak_price_hour AS 'Harga/Jam', ak_price_day AS 'Harga/Hari' FROM aksesoris, brand WHERE ak_br_id = br_id";
+                cmd.CommandText = @"SELECT ak_id AS 'ID', ak_name AS 'Aksesoris',br_name AS 'Brand', ak_amount AS 'Unit Tersedia', ak_price_hour AS 'Harga/Jam', ak_price_day AS 'Harga/Hari' FROM aksesoris, brand WHERE ak_br_id = br_id " + this.where;
 
                 Koneksi.openConn();
                 cmd.ExecuteReader();
@@ -119,7 +122,7 @@ namespace ProjectPCS.Leonardo
                 cmd = new MySqlCommand();
                 da = new MySqlDataAdapter();
                 cmd.Connection = Koneksi.getConn();
-                cmd.CommandText = @"SELECT sp_id AS 'ID', sp_name AS 'Sepeda',br_name AS 'Brand', sp_amount AS 'Unit Tersedia', sp_price_hour AS 'Harga/Jam', sp_price_day AS 'Harga/Hari' FROM sepeda, brand WHERE sp_br_id = br_id";
+                cmd.CommandText = @"SELECT sp_id AS 'ID', sp_name AS 'Sepeda',br_name AS 'Brand', sp_amount AS 'Unit Tersedia', sp_price_hour AS 'Harga/Jam', sp_price_day AS 'Harga/Hari' FROM sepeda, brand WHERE sp_br_id = br_id " + this.where;
                 
                 Koneksi.openConn();
                 cmd.ExecuteReader();
@@ -181,6 +184,55 @@ namespace ProjectPCS.Leonardo
                 Console.WriteLine(ex.Message);
             }
             dataGridView1.ClearSelection();
+        }
+
+        private void loadComboboxTipe()
+        {
+            string query = "SELECT ty_id AS 'id', ty_name AS 'nama' FROM TYPE";
+            comboBox2.Items.Clear();
+
+            if (comboBox3.SelectedIndex == 0) {
+                query += " WHERE ty_for = 0;";
+            } else {
+                query += " WHERE ty_for = 1;";
+            }
+
+            MySqlCommand cmd = new MySqlCommand(query);
+            cmd.Connection = Koneksi.getConn();
+            Koneksi.openConn();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            comboBox2.Items.Add(new {Text = "All", Value = "0"});
+
+            while (reader.Read())
+            {
+                comboBox2.Items.Add(new { Text = reader.GetString(1), Value = reader.GetString(0) });
+            }
+
+            comboBox2.DisplayMember = "Text";
+            comboBox2.ValueMember = "Value";
+            Koneksi.closeConn();
+            comboBox2.SelectedIndex = 0;
+        }
+
+        private void loadComboboxBrand()
+        {
+            comboBox1.Items.Clear();
+
+            MySqlCommand cmd = new MySqlCommand("SELECT br_id AS 'id', br_name AS 'nama' FROM brand;");
+            cmd.Connection = Koneksi.getConn();
+            Koneksi.openConn();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            comboBox1.Items.Add(new { Text = "All", Value = "0" });
+
+            while (reader.Read())
+            {
+                comboBox1.Items.Add(new { Text = reader.GetString(1), Value = reader.GetString(0) });
+            }
+
+            comboBox1.DisplayMember = "Text";
+            comboBox1.ValueMember = "Value";
+            Koneksi.closeConn();
+            comboBox1.SelectedIndex = 0;
         }
 
         private void removeCart(string id, string amount, bool aksesoris = false)
@@ -363,7 +415,10 @@ namespace ProjectPCS.Leonardo
                 return;
             }
 
+            textBox1.Text = "";
             loadDatagridUtama();
+            loadComboboxTipe();
+            loadComboboxBrand();
         }
         
         private int cariRow(int id)
@@ -735,9 +790,57 @@ namespace ProjectPCS.Leonardo
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+    // FILTER SECTION
+        private void filter(object sender, EventArgs e)
         {
+            if(textBox2.Text == "")
+            {
+                return;
+            }
 
+            this.where = "";
+
+            if (comboBox3.SelectedIndex == 0) { // SEPEDA
+
+                // SEPEDA BY NAME
+                if (textBox1.Text != "")
+                {
+                    this.where += $"AND LOWER(SP_NAME) LIKE LOWER('%{textBox1.Text}%') ";
+                }
+
+                // SEPEDA BY TIPE
+                if(comboBox2.SelectedIndex > 0)
+                {
+                    this.where += $"AND SP_TY_ID = {(comboBox2.SelectedItem as dynamic).Value} ";
+                }
+
+                // SEPEDA BY BRAND
+                if (comboBox1.SelectedIndex > 0)
+                {
+                    this.where += $"AND SP_BR_ID = {(comboBox1.SelectedItem as dynamic).Value} ";
+                }
+            } else { // AKSESORIS
+
+                // AKSESORIS BY NAME
+                if (textBox1.Text != "")
+                {
+                    this.where += $"AND LOWER(AK_NAME) LIKE LOWER('%{textBox1.Text}%') ";
+                }
+
+                // AKSESORIS BY TIPE
+                if (comboBox2.SelectedIndex > 0)
+                {
+                    this.where += $"AND AK_TY_ID = {(comboBox2.SelectedItem as dynamic).Value} ";
+                }
+
+                // AKSESORIS BY BRAND
+                if (comboBox1.SelectedIndex > 0)
+                {
+                    this.where += $"AND AK_BR_ID = {(comboBox1.SelectedItem as dynamic).Value} ";
+                }
+            }
+
+            loadDatagridUtama();
         }
     }
 }
