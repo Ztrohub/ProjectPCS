@@ -111,11 +111,23 @@
     <Compile Include="Leonardo\history.Designer.cs">
       <DependentUpon>history.cs</DependentUpon>
     </Compile>
+    <Compile Include="Leonardo\Jaminan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Leonardo\Jaminan.Designer.cs">
+      <DependentUpon>Jaminan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Leonardo\ongoing.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Leonardo\ongoing.Designer.cs">
       <DependentUpon>ongoing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Leonardo\TambahItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Leonardo\TambahItem.Designer.cs">
+      <DependentUpon>TambahItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Leonardo\topup.cs">
       <SubType>Form</SubType>
@@ -165,8 +177,14 @@
     <EmbeddedResource Include="Leonardo\history.resx">
       <DependentUpon>history.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Leonardo\Jaminan.resx">
+      <DependentUpon>Jaminan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Leonardo\ongoing.resx">
       <DependentUpon>ongoing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Leonardo\TambahItem.resx">
+      <DependentUpon>TambahItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Leonardo\topup.resx">
       <DependentUpon>topup.cs</DependentUpon>

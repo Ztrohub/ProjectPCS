@@ -19,6 +19,10 @@ namespace ProjectPCS.Leonardo
         DataSet ds;
         MySqlDataAdapter da;
         DataTable dt;
+        string tempnama;
+        string tempsaldo;
+        bool exit = true;
+
         public topup(int us_id)
         {
             InitializeComponent();
@@ -27,8 +31,46 @@ namespace ProjectPCS.Leonardo
 
         private void topup_Load(object sender, EventArgs e)
         {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = Koneksi.getConn();
+                Koneksi.openConn();
+                cmd.CommandText = @"select us_name from users where us_id = '" + us_id + "'";
+                rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    tempnama = rd.GetString(0);
+                }
+                Koneksi.closeConn();
+                label1.Text = "Welcome, " + tempnama;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = Koneksi.getConn();
+                Koneksi.openConn();
+                cmd.CommandText = @"select us_saldo from users where us_id = '" + us_id + "'";
+                rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    tempsaldo = rd.GetString(0);
+                }
+                Koneksi.closeConn();
+                label2.Text = "Rp." + tempsaldo;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
             loaddatagrid1();
-            groupBox1.Visible = false;
         }
 
         void loaddatagrid1()
@@ -40,7 +82,9 @@ namespace ProjectPCS.Leonardo
                 cmd = new MySqlCommand();
                 da = new MySqlDataAdapter();
                 cmd.Connection = Koneksi.getConn();
-                cmd.CommandText = @"SELECT dm_name AS 'Kegiatan', CONCAT('Rp. ',dm_amount) AS 'Jumlah', dm_date AS 'Tanggal' FROM dompet;";
+                cmd.CommandText = @"SELECT dm_name AS 'Kegiatan', CONCAT('Rp. ',dm_amount) AS 'Jumlah', dm_date AS 'Tanggal' FROM dompet
+                where dm_us_id = @us_id;";
+                cmd.Parameters.AddWithValue("@us_id", us_id);
 
                 Koneksi.openConn();
                 cmd.ExecuteReader();
@@ -57,6 +101,7 @@ namespace ProjectPCS.Leonardo
 
         private void sepedaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            exit = false;
             UserForm b = new UserForm(us_id);
             this.Hide();
             b.ShowDialog();
@@ -67,6 +112,7 @@ namespace ProjectPCS.Leonardo
 
         private void historyToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            exit = false;
             history c = new history(us_id);
             this.Hide();
             c.ShowDialog();
@@ -75,6 +121,7 @@ namespace ProjectPCS.Leonardo
 
         private void onGoingToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            exit = false;
             ongoing f = new ongoing(us_id);
             this.Hide();
             f.ShowDialog();
@@ -88,8 +135,51 @@ namespace ProjectPCS.Leonardo
 
         private void topup_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure want to logout?", "Log Out", MessageBoxButtons.YesNo);
-            e.Cancel = (dialogResult == DialogResult.No);
+            if (exit)
+            {
+                DialogResult dialogResult = MessageBox.Show("Are you sure want to logout?", "Log Out", MessageBoxButtons.YesNo);
+                e.Cancel = (dialogResult == DialogResult.No);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (numericUpDown1.Value < 0)
+            {
+                MessageBox.Show("Nilai top-up harus lebih besar dari 0!");
+                return;
+            }
+
+            try
+            {
+                cmd = new MySqlCommand();
+                cmd.Connection = Koneksi.getConn();
+                cmd.CommandText = @"Insert into dompet
+                values(0, @name, @amount, @us_id, now());
+            
+                update users
+                set us_saldo = us_saldo + @amount
+                where us_id = @us_id;
+
+                select us_saldo
+                from users where us_id = @us_id";
+
+                cmd.Parameters.AddWithValue("@us_id", us_id);
+                cmd.Parameters.AddWithValue("@amount", numericUpDown1.Value);
+
+                Koneksi.openConn();
+                tempsaldo = cmd.ExecuteScalar().ToString();
+                Koneksi.closeConn();
+                label2.Text = "Rp." + tempsaldo;
+
+                loaddatagrid1();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
         }
     }
 }

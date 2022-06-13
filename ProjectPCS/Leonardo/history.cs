@@ -20,6 +20,7 @@ namespace ProjectPCS.Leonardo
         DataSet ds;
         MySqlDataAdapter da;
         DataTable dt;
+        bool exit = true;
         public history(int us_id)
         {
             InitializeComponent();
@@ -40,7 +41,17 @@ namespace ProjectPCS.Leonardo
                 cmd = new MySqlCommand();
                 da = new MySqlDataAdapter();
                 cmd.Connection = Koneksi.getConn();
-                cmd.CommandText = @"SELECT ht_date AS 'tanggal', ht_invoice_number AS 'invoice', ht_total AS 'total', ht_hari AS 'hari', ht_jam AS 'jam', ht_kembalian AS 'tgl kembali', ht_dikembalikan AS 'tgl dikembalikan', ht_us_penerima AS 'penerima' FROM htrans";
+                cmd.CommandText = @"SELECT 
+                ifnull(ht_date, '-') AS 'Tanggal', 
+                ht_invoice_number AS 'Invoice', 
+                ht_total AS 'Total', 
+                ht_hari AS 'Hari', 
+                ht_jam AS 'Jam', 
+                ifnull(ht_kembalian, '-') AS 'Tgl Kembali', 
+                ifnull(ht_dikembalikan, '-') AS 'Tgl Dikembalikan'
+                FROM htrans
+                where HT_US_ID = @us_id";
+                cmd.Parameters.AddWithValue("@us_id", us_id);
 
                 Koneksi.openConn();
                 cmd.ExecuteReader();
@@ -59,6 +70,7 @@ namespace ProjectPCS.Leonardo
 
         private void aToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            exit = false;
             UserForm b = new UserForm(us_id);
             this.Hide();
             b.ShowDialog();
@@ -69,6 +81,7 @@ namespace ProjectPCS.Leonardo
 
         private void topUpToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            exit = false;
             topup d = new topup(us_id);
             this.Hide();
             d.ShowDialog();
@@ -77,6 +90,7 @@ namespace ProjectPCS.Leonardo
 
         private void onGoingToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            exit = false;
             ongoing f = new ongoing(us_id);
             this.Hide();
             f.ShowDialog();
@@ -90,8 +104,11 @@ namespace ProjectPCS.Leonardo
 
         private void history_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure want to logout?", "Log Out", MessageBoxButtons.YesNo);
-            e.Cancel = (dialogResult == DialogResult.No);
+            if (exit)
+            {
+                DialogResult dialogResult = MessageBox.Show("Are you sure want to logout?", "Log Out", MessageBoxButtons.YesNo);
+                e.Cancel = (dialogResult == DialogResult.No);
+            }
         }
     }
 }

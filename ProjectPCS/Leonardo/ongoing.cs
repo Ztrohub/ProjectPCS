@@ -13,6 +13,7 @@ namespace ProjectPCS.Leonardo
     public partial class ongoing : Form
     {
         int us_id;
+        bool exit = true;
         public ongoing(int us_id)
         {
             InitializeComponent();
@@ -31,8 +32,11 @@ namespace ProjectPCS.Leonardo
 
         private void ongoing_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure want to logout?", "Log Out", MessageBoxButtons.YesNo);
-            e.Cancel = (dialogResult == DialogResult.No);
+            if (exit)
+            {
+                DialogResult dialogResult = MessageBox.Show("Are you sure want to logout?", "Log Out", MessageBoxButtons.YesNo);
+                e.Cancel = (dialogResult == DialogResult.No);
+            }
         }
 
         private void bToolStripMenuItem_Click(object sender, EventArgs e)
@@ -42,6 +46,7 @@ namespace ProjectPCS.Leonardo
 
         private void aToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            exit = false;
             UserForm b = new UserForm(us_id);
             this.Hide();
             b.ShowDialog();
@@ -50,6 +55,7 @@ namespace ProjectPCS.Leonardo
 
         private void historyToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            exit = false;
             history c = new history(us_id);
             this.Hide();
             c.ShowDialog();
@@ -58,6 +64,7 @@ namespace ProjectPCS.Leonardo
 
         private void topUpToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            exit = false;
             topup d = new topup(us_id);
             this.Hide();
             d.ShowDialog();
