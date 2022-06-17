@@ -1,7 +1,7 @@
 ﻿
 namespace ProjectPCS.Jonathan
 {
-    partial class AdminForm
+    partial class User
     {
         /// <summary>
         /// Required designer variable.
@@ -36,9 +36,13 @@ namespace ProjectPCS.Jonathan
             this.transaksiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jaminanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgvuser = new System.Windows.Forms.DataGridView();
+            this.txtsrc = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvuser)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -54,8 +58,8 @@ namespace ProjectPCS.Jonathan
             this.logoutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1067, 28);
-            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // summaryToolStripMenuItem
@@ -91,7 +95,6 @@ namespace ProjectPCS.Jonathan
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
             this.userToolStripMenuItem.Size = new System.Drawing.Size(52, 24);
             this.userToolStripMenuItem.Text = "User";
-            this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
             // 
             // jaminanToolStripMenuItem
             // 
@@ -100,16 +103,6 @@ namespace ProjectPCS.Jonathan
             this.jaminanToolStripMenuItem.Text = "Jaminan";
             this.jaminanToolStripMenuItem.Click += new System.EventHandler(this.jaminanToolStripMenuItem_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 24);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Welcome Admin";
-            // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
@@ -117,34 +110,84 @@ namespace ProjectPCS.Jonathan
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
-            // AdminForm
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 81);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 17);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Search :";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 36);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "User";
+            // 
+            // dgvuser
+            // 
+            this.dgvuser.AllowUserToAddRows = false;
+            this.dgvuser.AllowUserToDeleteRows = false;
+            this.dgvuser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvuser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvuser.Location = new System.Drawing.Point(12, 130);
+            this.dgvuser.Name = "dgvuser";
+            this.dgvuser.ReadOnly = true;
+            this.dgvuser.RowHeadersVisible = false;
+            this.dgvuser.RowHeadersWidth = 51;
+            this.dgvuser.RowTemplate.Height = 24;
+            this.dgvuser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvuser.Size = new System.Drawing.Size(776, 295);
+            this.dgvuser.TabIndex = 7;
+            // 
+            // txtsrc
+            // 
+            this.txtsrc.Location = new System.Drawing.Point(82, 81);
+            this.txtsrc.Name = "txtsrc";
+            this.txtsrc.Size = new System.Drawing.Size(182, 22);
+            this.txtsrc.TabIndex = 12;
+            this.txtsrc.TextChanged += new System.EventHandler(this.usersearch);
+            // 
+            // User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 649);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtsrc);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.dgvuser);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "AdminForm";
-            this.Text = "AdminForm";
-            this.Load += new System.EventHandler(this.AdminForm_Load);
+            this.Name = "User";
+            this.Text = "User";
+            this.Load += new System.EventHandler(this.User_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvuser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
+
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem summaryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sepedaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aksesorisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem transaksiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jaminanToolStripMenuItem;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ToolStripMenuItem summaryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgvuser;
+        private System.Windows.Forms.TextBox txtsrc;
     }
 }
