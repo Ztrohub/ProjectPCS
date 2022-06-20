@@ -83,7 +83,7 @@ namespace ProjectPCS.Leonardo
                 da = new MySqlDataAdapter();
                 cmd.Connection = Koneksi.getConn();
                 cmd.CommandText = @"SELECT dm_name AS 'Kegiatan', CONCAT('Rp. ',dm_amount) AS 'Jumlah', dm_date AS 'Tanggal' FROM dompet
-                where dm_us_id = @us_id;";
+                where dm_us_id = @us_id order by dm_id desc;";
                 cmd.Parameters.AddWithValue("@us_id", us_id);
 
                 Koneksi.openConn();
@@ -144,7 +144,7 @@ namespace ProjectPCS.Leonardo
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (numericUpDown1.Value < 0)
+            if (numericUpDown1.Value <= 0)
             {
                 MessageBox.Show("Nilai top-up harus lebih besar dari 0!");
                 return;
@@ -155,7 +155,7 @@ namespace ProjectPCS.Leonardo
                 cmd = new MySqlCommand();
                 cmd.Connection = Koneksi.getConn();
                 cmd.CommandText = @"Insert into dompet
-                values(0, @name, @amount, @us_id, now());
+                values(0, 'Berhasil Top-Up', @amount, @us_id, now());
             
                 update users
                 set us_saldo = us_saldo + @amount
@@ -173,6 +173,7 @@ namespace ProjectPCS.Leonardo
                 label2.Text = "Rp." + tempsaldo;
 
                 loaddatagrid1();
+                MessageBox.Show("Berhasil Top-Up!");
 
             }
             catch (Exception ex)
