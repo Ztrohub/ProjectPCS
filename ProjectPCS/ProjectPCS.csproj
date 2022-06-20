@@ -169,11 +169,65 @@
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Koneksi.cs" />
+    <Compile Include="Leonardo\AmbilJaminan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Leonardo\AmbilJaminan.Designer.cs">
+      <DependentUpon>AmbilJaminan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Leonardo\Denda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Leonardo\Denda.Designer.cs">
+      <DependentUpon>Denda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Leonardo\Detail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Leonardo\Detail.Designer.cs">
+      <DependentUpon>Detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Leonardo\history.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Leonardo\history.Designer.cs">
+      <DependentUpon>history.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Leonardo\Jaminan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Leonardo\Jaminan.Designer.cs">
+      <DependentUpon>Jaminan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Leonardo\ongoing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Leonardo\ongoing.Designer.cs">
+      <DependentUpon>ongoing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Leonardo\TambahItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Leonardo\TambahItem.Designer.cs">
+      <DependentUpon>TambahItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Leonardo\topup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Leonardo\topup.Designer.cs">
+      <DependentUpon>topup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Leonardo\UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Leonardo\UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Leonardo\waktu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Leonardo\waktu.Designer.cs">
+      <DependentUpon>waktu.cs</DependentUpon>
     </Compile>
     <Compile Include="Loading.cs">
       <SubType>Form</SubType>
@@ -241,8 +295,29 @@
     <EmbeddedResource Include="Jonathan\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Leonardo\Detail.resx">
+      <DependentUpon>Detail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Leonardo\history.resx">
+      <DependentUpon>history.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Leonardo\Jaminan.resx">
+      <DependentUpon>Jaminan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Leonardo\ongoing.resx">
+      <DependentUpon>ongoing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Leonardo\TambahItem.resx">
+      <DependentUpon>TambahItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Leonardo\topup.resx">
+      <DependentUpon>topup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Leonardo\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Leonardo\waktu.resx">
+      <DependentUpon>waktu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Loading.resx">
       <DependentUpon>Loading.cs</DependentUpon>

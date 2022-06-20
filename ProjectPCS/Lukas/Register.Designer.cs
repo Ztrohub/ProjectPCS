@@ -43,9 +43,10 @@ namespace ProjectPCS.Lukas
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(167, 207);
+            this.button2.Location = new System.Drawing.Point(223, 255);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(165, 23);
+            this.button2.Size = new System.Drawing.Size(220, 28);
             this.button2.TabIndex = 11;
             this.button2.Text = "Go to Login";
             this.button2.UseVisualStyleBackColor = true;
@@ -53,9 +54,10 @@ namespace ProjectPCS.Lukas
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(167, 178);
+            this.button1.Location = new System.Drawing.Point(223, 219);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(165, 23);
+            this.button1.Size = new System.Drawing.Size(220, 28);
             this.button1.TabIndex = 10;
             this.button1.Text = "Register";
             this.button1.UseVisualStyleBackColor = true;
@@ -63,49 +65,55 @@ namespace ProjectPCS.Lukas
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(163, 61);
+            this.textBox2.Location = new System.Drawing.Point(217, 75);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(167, 20);
+            this.textBox2.Size = new System.Drawing.Size(221, 22);
             this.textBox2.TabIndex = 9;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(165, 25);
+            this.textBox1.Location = new System.Drawing.Point(220, 31);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(167, 20);
+            this.textBox1.Size = new System.Drawing.Size(221, 22);
             this.textBox1.TabIndex = 8;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(98, 64);
+            this.label2.Location = new System.Drawing.Point(131, 79);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.Size = new System.Drawing.Size(77, 17);
             this.label2.TabIndex = 7;
             this.label2.Text = "Password :";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(98, 25);
+            this.label1.Location = new System.Drawing.Point(131, 31);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.Size = new System.Drawing.Size(81, 17);
             this.label1.TabIndex = 6;
             this.label1.Text = "Username :";
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(163, 97);
+            this.textBox3.Location = new System.Drawing.Point(217, 119);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(167, 20);
+            this.textBox3.Size = new System.Drawing.Size(221, 22);
             this.textBox3.TabIndex = 13;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(98, 100);
+            this.label3.Location = new System.Drawing.Point(131, 123);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.Size = new System.Drawing.Size(53, 17);
             this.label3.TabIndex = 12;
             this.label3.Text = "Nama :";
             // 
@@ -113,9 +121,10 @@ namespace ProjectPCS.Lukas
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(163, 137);
+            this.radioButton1.Location = new System.Drawing.Point(217, 169);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(54, 17);
+            this.radioButton1.Size = new System.Drawing.Size(68, 21);
             this.radioButton1.TabIndex = 14;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Admin";
@@ -124,18 +133,20 @@ namespace ProjectPCS.Lukas
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(239, 137);
+            this.radioButton2.Location = new System.Drawing.Point(319, 169);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(47, 17);
+            this.radioButton2.Size = new System.Drawing.Size(59, 21);
             this.radioButton2.TabIndex = 15;
             this.radioButton2.Text = "User";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // Register
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(431, 251);
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.ClientSize = new System.Drawing.Size(575, 309);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.textBox3);
@@ -146,8 +157,11 @@ namespace ProjectPCS.Lukas
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Register";
             this.Text = "Register";
+            this.Load += new System.EventHandler(this.Register_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
