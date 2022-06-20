@@ -1,0 +1,11 @@
+sepeda,aksesoris
+dgv : id,nama,merk,unit tersedia,unit terpakai, harga perjam,hargaperhari,tipe
+
+transaksi
+dgv : id,invoice number,date(transaksi),user,total,status
+
+user
+dgv : username,name,saldo
+
+jaminan
+dgv : id,user,tipe,number(j_number),nomor pengambilan(nopeng),tgl diserahkan(j_date),tgl pengambilan(j_ambil)

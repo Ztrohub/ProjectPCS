@@ -168,6 +168,48 @@
     <Compile Include="Jonathan\AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Jonathan\Aksesoris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Jonathan\Aksesoris.Designer.cs">
+      <DependentUpon>Aksesoris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Jonathan\Denda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Jonathan\Denda.Designer.cs">
+      <DependentUpon>Denda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Jonathan\Detail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Jonathan\Detail.Designer.cs">
+      <DependentUpon>Detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Jonathan\Jaminan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Jonathan\Jaminan.Designer.cs">
+      <DependentUpon>Jaminan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Jonathan\Sepeda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Jonathan\Sepeda.Designer.cs">
+      <DependentUpon>Sepeda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Jonathan\Transaksi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Jonathan\Transaksi.Designer.cs">
+      <DependentUpon>Transaksi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Jonathan\User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Jonathan\User.Designer.cs">
+      <DependentUpon>User.cs</DependentUpon>
+    </Compile>
     <Compile Include="Koneksi.cs" />
     <Compile Include="Leonardo\AmbilJaminan.cs">
       <SubType>Form</SubType>
@@ -295,6 +337,26 @@
     <EmbeddedResource Include="Jonathan\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Jonathan\Aksesoris.resx">
+      <DependentUpon>Aksesoris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Jonathan\Denda.resx">
+      <DependentUpon>Denda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Jonathan\Detail.resx">
+      <DependentUpon>Detail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Jonathan\Jaminan.resx">
+      <DependentUpon>Jaminan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Jonathan\Sepeda.resx">
+      <DependentUpon>Sepeda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Jonathan\Transaksi.resx">
+      <DependentUpon>Transaksi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Jonathan\User.resx">
+      <DependentUpon>User.cs</DependentUpon>
     <EmbeddedResource Include="Leonardo\Detail.resx">
       <DependentUpon>Detail.cs</DependentUpon>
     </EmbeddedResource>
