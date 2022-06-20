@@ -16,14 +16,14 @@ namespace ProjectPCS.Fernando {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class CrystalReport1 : ReportClass {
+    public class SubreportDenda : ReportClass {
         
-        public CrystalReport1() {
+        public SubreportDenda() {
         }
         
         public override string ResourceName {
             get {
-                return "CrystalReport1.rpt";
+                return "SubreportDenda.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace ProjectPCS.Fernando {
         
         public override string FullResourceName {
             get {
-                return "ProjectPCS.Fernando.CrystalReport1.rpt";
+                return "ProjectPCS.Fernando.SubreportDenda.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace ProjectPCS.Fernando {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCrystalReport1 : Component, ICachedReport {
+    public class CachedSubreportDenda : Component, ICachedReport {
         
-        public CachedCrystalReport1() {
+        public CachedSubreportDenda() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace ProjectPCS.Fernando {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            CrystalReport1 rpt = new CrystalReport1();
+            SubreportDenda rpt = new SubreportDenda();
             rpt.Site = this.Site;
             return rpt;
         }
