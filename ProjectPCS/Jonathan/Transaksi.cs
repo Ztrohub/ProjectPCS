@@ -18,31 +18,10 @@ namespace ProjectPCS.Jonathan
         {
             InitializeComponent();
             this.us_id = us_id;
-        }
-
-        void loadcmbstatus()
-        {
-            MySqlCommand cmd = new MySqlCommand();
-            cmd.Connection = Koneksi.getConn();
-            cmd.CommandText = "SELECT HT_status from htrans";
-            Koneksi.openConn();
-            MySqlDataReader reader = cmd.ExecuteReader();
-
-            //Setting untuk value dan display dari combobox
-            combostatus.DisplayMember = "Text";
-            combostatus.ValueMember = "Value";
-            combostatus.Items.Add(new { Text = "All", Value = 0 });
-            //Setelah dia executeReader, masukkan Items yang didapat ke dalam combobox
-            while (reader.Read())
-            {
-                combostatus.Items.Add(new { Text = reader.GetString(0), Value = reader.GetString(0) });
-
-            }
-            reader.Close();
-            //Ubah selected index jadi 0
+            refresh();
             combostatus.SelectedIndex = 0;
-            Koneksi.closeConn();
         }
+
         public void refresh()
         {
             try
@@ -75,13 +54,11 @@ namespace ProjectPCS.Jonathan
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-
             }
         }
         private void Transaksi_Load(object sender, EventArgs e)
         {
-            //loadcmbstatus();
-            refresh();
+            
         }
 
         private void summaryToolStripMenuItem_Click(object sender, EventArgs e)
@@ -136,6 +113,11 @@ namespace ProjectPCS.Jonathan
 
         private void button1_Click(object sender, EventArgs e)
         {
+            today();
+        }
+
+        public void today()
+        {
             try
             {
                 Koneksi.openConn();
@@ -152,8 +134,9 @@ namespace ProjectPCS.Jonathan
                 " else ' tidak ada denda/sudah bayar denda' end) as 'status'" +
                 " from htrans, users" +
                 " WHERE htrans.ht_us_id = us_id" +
-                " and htrans.HT_STATUS = " + combostatus.SelectedIndex +
-                " and date_format(htrans.HT_DATE,'%Y-%m-%d') between '" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "' and '" + dateTimePicker3.Value.ToString("yyyy-MM-dd") + "'";
+                (combostatus.SelectedIndex == 0 || combostatus.SelectedIndex == 1 ? "" : (" and htrans.HT_STATUS = " + (combostatus.SelectedIndex - 2))) +
+                (combostatus.SelectedIndex == 1 ? "and htrans.HT_DATE IS NULL " : "") +
+                " and htrans.HT_DATE between '" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + " 00:00:00' and '" + dateTimePicker3.Value.ToString("yyyy-MM-dd") + " 23:59:59'";
                 MySqlDataAdapter da = new MySqlDataAdapter(query, Koneksi.getConn());
                 da.Fill(dt);
                 dgvtrans.DataSource = dt;

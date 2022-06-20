@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using ProjectPCS.Fernando;
 
 namespace ProjectPCS.Jonathan
 {
@@ -127,6 +128,21 @@ namespace ProjectPCS.Jonathan
                 dgvuser.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
 
+        }
+
+        private void dgvuser_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int select = dgvuser.CurrentCell.RowIndex;
+            string username = dgvuser.Rows[select].Cells[0].Value.ToString();
+            MySqlCommand cmd = new MySqlCommand("SELECT US_ID FROM users WHERE US_USERNAME = '" + username + "'");
+            cmd.Connection = Koneksi.getConn();
+            Koneksi.openConn();
+            string id = cmd.ExecuteScalar().ToString();
+            Koneksi.closeConn();
+
+            DetailUserViewer duv = new DetailUserViewer(id);
+            duv.ShowDialog();
+            duv.Dispose();
         }
     }
 }

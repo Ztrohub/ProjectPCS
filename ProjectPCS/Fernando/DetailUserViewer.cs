@@ -8,38 +8,38 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using ProjectPCS.Fernando;
 
-namespace ProjectPCS.Jonathan
+
+namespace ProjectPCS.Fernando
 {
-    public partial class Detail : Form
+    public partial class DetailUserViewer : Form
     {
-        string HT_ID;
+        private string us_id;
 
-        public Detail(string HT_ID)
+        public DetailUserViewer(string us_id)
         {
             InitializeComponent();
-            this.HT_ID = HT_ID;
+            this.us_id = us_id;
         }
 
-        private void Detail_Load(object sender, EventArgs e)
+        private void DetailUserViewer_Load(object sender, EventArgs e)
         {
-            crptNotaSewa rep = new crptNotaSewa();
+            crptDetailUser rep = new crptDetailUser();
             rep.SetDatabaseLogon(Koneksi.username, "", Koneksi.server, Koneksi.dbname);
-            rep.SetParameterValue("no_nota", getInvoice());
+            rep.SetParameterValue("username", getUsername());
             crystalReportViewer1.ReportSource = rep;
             crystalReportViewer1.Zoom(1);
         }
 
-        private string getInvoice()
+        private string getUsername()
         {
-            MySqlCommand cmd = new MySqlCommand("SELECT HT_INVOICE_NUMBER FROM htrans WHERE HT_ID = " + this.HT_ID);
+            MySqlCommand cmd = new MySqlCommand("SELECT US_USERNAME FROM users WHERE US_ID = " + this.us_id);
             cmd.Connection = Koneksi.getConn();
             Koneksi.openConn();
-            string invoice = cmd.ExecuteScalar().ToString();
+            string username = cmd.ExecuteScalar().ToString();
             Koneksi.closeConn();
 
-            return invoice;
+            return username;
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
-namespace ProjectPCS.Jonathan
+namespace ProjectPCS.Fernando
 {
-    partial class Detail
+    partial class DetailUserViewer
     {
         /// <summary>
         /// Required designer variable.
@@ -40,18 +40,19 @@ namespace ProjectPCS.Jonathan
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(1228, 576);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(997, 566);
             this.crystalReportViewer1.TabIndex = 0;
             // 
-            // Detail
+            // DetailUserViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1228, 576);
+            this.ClientSize = new System.Drawing.Size(997, 566);
             this.Controls.Add(this.crystalReportViewer1);
-            this.Name = "Detail";
-            this.Text = "Detail";
-            this.Load += new System.EventHandler(this.Detail_Load);
+            this.Name = "DetailUserViewer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "DetailUserViewer";
+            this.Load += new System.EventHandler(this.DetailUserViewer_Load);
             this.ResumeLayout(false);
 
         }

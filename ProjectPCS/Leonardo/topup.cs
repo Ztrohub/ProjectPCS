@@ -119,15 +119,6 @@ namespace ProjectPCS.Leonardo
             this.Close();
         }
 
-        private void onGoingToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            exit = false;
-            ongoing f = new ongoing(us_id);
-            this.Hide();
-            f.ShowDialog();
-            this.Close();
-        }
-
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();

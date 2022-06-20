@@ -45,6 +45,7 @@ namespace ProjectPCS.Lukas
                 Koneksi.closeConn();
 
                 MessageBox.Show("Berhasil Register!");
+                this.Close();
             }
             catch (MySqlException er)
             {
@@ -55,11 +56,6 @@ namespace ProjectPCS.Lukas
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void Register_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

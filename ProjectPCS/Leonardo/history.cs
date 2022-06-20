@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using ProjectPCS.Fernando;
 
 
 namespace ProjectPCS.Leonardo
@@ -24,6 +25,7 @@ namespace ProjectPCS.Leonardo
         string filter_status = "";
         string tempnama;
         string tempsaldo;
+
         public history(int us_id)
         {
             InitializeComponent();
@@ -77,6 +79,7 @@ namespace ProjectPCS.Leonardo
 
         void loaddatagrid1()
         {
+            clearLabelAndButton();
             dataGridView1.ClearSelection();
             try
             {
@@ -113,8 +116,24 @@ namespace ProjectPCS.Leonardo
             }
 
             dataGridView1.ClearSelection();
+        }
 
+        private void clearLabelAndButton()
+        {
+            label12.Text = "-";
+            label13.Text = "-";
+            label14.Text = "-";
+            label15.Text = "-";
+            label18.Text = "-";
+            label19.Text = "-";
+            label20.Text = "-";
+            label21.Text = "-";
+            label23.Text = "-";
 
+            button5.Enabled = false;
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
         }
 
         private void aToolStripMenuItem_Click(object sender, EventArgs e)
@@ -134,15 +153,6 @@ namespace ProjectPCS.Leonardo
             topup d = new topup(us_id);
             this.Hide();
             d.ShowDialog();
-            this.Close();
-        }
-
-        private void onGoingToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            exit = false;
-            ongoing f = new ongoing(us_id);
-            this.Hide();
-            f.ShowDialog();
             this.Close();
         }
 
@@ -260,6 +270,96 @@ namespace ProjectPCS.Leonardo
                 label23.Text = "-";
             }
             
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            // NOTA TRANSAKSI
+
+            Detail d = new Detail(label12.Text);
+            d.ShowDialog();
+            d.Dispose();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            // DENDA
+
+            Denda denda = new Denda(label12.Text, us_id.ToString());
+            denda.ShowDialog();
+
+            if (denda.success)
+            {
+                loaddatagrid1();
+
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = Koneksi.getConn();
+                Koneksi.openConn();
+                cmd.CommandText = @"select us_saldo from users where us_id = '" + us_id + "'";
+                rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    tempsaldo = rd.GetString(0);
+                }
+                Koneksi.closeConn();
+                label2.Text = "Rp." + tempsaldo;
+            }
+
+            denda.Dispose();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            // JAMINAN
+
+            MySqlCommand cmd = new MySqlCommand("SELECT IFNULL(j_ambil, '-'), j_id FROM jaminan JOIN htrans ON j_ht_id = ht_id WHERE ht_invoice_number = '" + label12.Text + "'");
+            cmd.Connection = Koneksi.getConn();
+            Koneksi.openConn();
+            MySqlDataReader rdr = cmd.ExecuteReader();
+
+            string tempString = "", id = "";
+            while (rdr.Read())
+            {
+                tempString = rdr.GetString(0);
+                id = rdr.GetString(1);
+            }
+
+            Koneksi.closeConn();
+
+            if(tempString == "-")
+            {
+                cmd = new MySqlCommand("UPDATE jaminan SET j_ambil = NOW() WHERE j_id = " + id);
+                cmd.Connection = Koneksi.getConn();
+                Koneksi.openConn();
+                cmd.ExecuteNonQuery();
+                Koneksi.closeConn();
+            }
+
+            AmbilJaminan ambil = new AmbilJaminan(label12.Text);
+            ambil.ShowDialog();
+            ambil.Dispose();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Apakah Anda ingin mengembalikan?", "Kembalikan sepeda", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.No) return;
+
+            MySqlCommand cmd = new MySqlCommand("update htrans set ht_status = 1, ht_dikembalikan = now() where ht_invoice_number = " + label12.Text);
+            cmd.Connection = Koneksi.getConn();
+            Koneksi.openConn();
+            cmd.ExecuteNonQuery();
+            Koneksi.closeConn();
+
+            MessageBox.Show("Berhasil mengembalikan sepeda! Silahkan menunggu konfirmasi dari Admin!");
+            loaddatagrid1();
+        }
+
+        private void btnSummary_Click(object sender, EventArgs e)
+        {
+            DetailUserViewer duv = new DetailUserViewer(this.us_id.ToString());
+            duv.ShowDialog();
+            duv.Dispose();
         }
     }
 }

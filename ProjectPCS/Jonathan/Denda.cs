@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using ProjectPCS.Fernando;
 
 namespace ProjectPCS.Jonathan
 {
@@ -17,6 +18,7 @@ namespace ProjectPCS.Jonathan
         string us_id;
         DataTable dt;
         MySqlDataAdapter da;
+
         public Denda(string HT_ID,string us_id)
         {
             InitializeComponent();
@@ -71,6 +73,7 @@ namespace ProjectPCS.Jonathan
                 }
                 dgvdenda.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dgvdenda.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                loadReport();
             }
             catch (Exception ex)
             {
@@ -124,7 +127,7 @@ namespace ProjectPCS.Jonathan
                 DataRow dr = dt.Rows[i];
                 cmd = new MySqlCommand();
                 cmd.Connection = Koneksi.getConn();
-                cmd.CommandText = "insert into denda values {0,@name,@price,@ht_id}";
+                cmd.CommandText = "insert into denda values (0,@name,@price,@ht_id)";
                 cmd.Parameters.AddWithValue("@name",dr[0].ToString());
                 cmd.Parameters.AddWithValue("@price", dr[1].ToString());
                 cmd.Parameters.AddWithValue("@ht_id", HT_ID);
@@ -145,6 +148,21 @@ namespace ProjectPCS.Jonathan
             Koneksi.closeConn();
             MessageBox.Show("Berhasil Input Denda");
             this.Close();
+        }
+
+        private void loadReport()
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT HT_INVOICE_NUMBER FROM htrans WHERE HT_ID = " + this.HT_ID);
+            cmd.Connection = Koneksi.getConn();
+            Koneksi.openConn();
+            string invoice = cmd.ExecuteScalar().ToString();
+            Koneksi.closeConn();
+
+            crptNotaSewa rep = new crptNotaSewa();
+            rep.SetDatabaseLogon(Koneksi.username, "", Koneksi.server, Koneksi.dbname);
+            rep.SetParameterValue("no_nota", invoice);
+            crystalReportViewer1.ReportSource = rep;
+            crystalReportViewer1.Zoom(1);
         }
     }
 }

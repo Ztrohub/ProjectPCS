@@ -370,20 +370,6 @@ namespace ProjectPCS.Leonardo
             this.Close();
         }
 
-        private void onGoingToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (ordering && !closeOrdering())
-            {
-                return;
-            }
-
-            exit = false;
-            ongoing f = new ongoing(us_id);
-            this.Hide();
-            f.ShowDialog();
-            this.Close();
-        }
-
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (ordering && !closeOrdering())
@@ -713,6 +699,10 @@ namespace ProjectPCS.Leonardo
 
                 MessageBox.Show("Order transaksi #" + textBox2.Text + " berhasil dibuat! Silahkan cek di menu on-going!");
 
+                Detail detail = new Detail(textBox2.Text);
+                detail.ShowDialog();
+                detail.Dispose();
+
                 cancel();
 
             }
@@ -734,7 +724,6 @@ namespace ProjectPCS.Leonardo
                 cmd.ExecuteNonQuery();
                 Koneksi.closeConn();
             }
-
         }
 
         private void insertCart(string id, string amount, string subtotal, string ht_id, bool aksesoris = false)

@@ -120,6 +120,12 @@
       <DependentUpon>crptNotaSewa.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Fernando\DetailUserViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fernando\DetailUserViewer.Designer.cs">
+      <DependentUpon>DetailUserViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fernando\SubreportSewaAksesoris.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -241,12 +247,6 @@
     <Compile Include="Leonardo\Jaminan.Designer.cs">
       <DependentUpon>Jaminan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Leonardo\ongoing.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Leonardo\ongoing.Designer.cs">
-      <DependentUpon>ongoing.cs</DependentUpon>
-    </Compile>
     <Compile Include="Leonardo\TambahItem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -307,6 +307,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crptNotaSewa.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Fernando\DetailUserViewer.resx">
+      <DependentUpon>DetailUserViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Fernando\SubreportSewaAksesoris.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>SubreportSewaAksesoris.cs</LastGenOutput>
@@ -357,6 +360,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Jonathan\User.resx">
       <DependentUpon>User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Leonardo\AmbilJaminan.resx">
+      <DependentUpon>AmbilJaminan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Leonardo\Denda.resx">
+      <DependentUpon>Denda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Leonardo\Detail.resx">
       <DependentUpon>Detail.cs</DependentUpon>
     </EmbeddedResource>
@@ -365,9 +375,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Leonardo\Jaminan.resx">
       <DependentUpon>Jaminan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Leonardo\ongoing.resx">
-      <DependentUpon>ongoing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Leonardo\TambahItem.resx">
       <DependentUpon>TambahItem.cs</DependentUpon>

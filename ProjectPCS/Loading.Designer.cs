@@ -59,7 +59,7 @@ namespace ProjectPCS
             // 
             this.progressBar1.ForeColor = System.Drawing.Color.Black;
             this.progressBar1.Location = new System.Drawing.Point(23, 249);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(657, 28);
             this.progressBar1.TabIndex = 2;
@@ -73,8 +73,9 @@ namespace ProjectPCS
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Loading";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loading";
             this.Load += new System.EventHandler(this.Loading_Load);
             this.ResumeLayout(false);

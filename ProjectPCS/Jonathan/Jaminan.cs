@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using ProjectPCS.Leonardo;
 
 namespace ProjectPCS.Jonathan
 {
@@ -32,8 +33,8 @@ namespace ProjectPCS.Jonathan
                 " jaminan.J_NOPENG as 'Nomor Pengambilan'," +
                 " jaminan.j_DATE AS 'Tanggal Diserahkan'," +
                 " jaminan.j_AMBIL as 'Tanggal Pengambilan'" +
-                " from jaminan,users" +
-                " where jaminan.J_ID = users.US_ID";
+                " from jaminan JOIN htrans ON j_ht_id = ht_id" +
+                " JOIN users ON ht_us_id = us_id";
 
                 MySqlDataAdapter da = new MySqlDataAdapter(query, Koneksi.getConn());
                 da.Fill(dt);
@@ -178,6 +179,22 @@ namespace ProjectPCS.Jonathan
             dgvjaminan.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvjaminan.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvjaminan.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        private void dgvjaminan_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int select = dgvjaminan.CurrentCell.RowIndex;
+            string id = dgvjaminan.Rows[select].Cells[0].Value.ToString();
+            
+            MySqlCommand cmd = new MySqlCommand("SELECT HT_INVOICE_NUMBER FROM htrans JOIN jaminan ON J_HT_ID = HT_ID WHERE J_ID = " + id);
+            cmd.Connection = Koneksi.getConn();
+            Koneksi.openConn();
+            string invoice = cmd.ExecuteScalar().ToString();
+            Koneksi.closeConn();
+
+            AmbilJaminan aj = new AmbilJaminan(invoice);
+            aj.ShowDialog();
+            aj.Dispose();
         }
     }
 }
